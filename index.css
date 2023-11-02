@@ -4,7 +4,7 @@
     --dark-blue: #3E85C8;
     --white: #FFFFFF;
     --gray: #9E9E9E;
-    --shadow: #000000;
+    --shadow: rgb(0, 0, 0, 0.2);
     --font: #252525;
 }
 
@@ -135,7 +135,7 @@ body{
     transform: translateX(99%);
     transition: 0.6s ease-in-out;
     border-radius:30% 0 0 0;
-    box-shadow: -4px 0 10px rgb(0, 0, 0, 0.2);
+    box-shadow: -4px 0 10px var(--shadow);
 }
 
 #cover #cover-content{
@@ -150,7 +150,7 @@ body{
 }
 
 #cover h1{
-    transform: translateX(85%);
+    transform: translateX(67%);
     transition: 0.6s ease;
     font-size: 6em;
     color: var(--blue);
@@ -194,7 +194,7 @@ body{
     transform: translateX(-1%);
     transition: 0.6s ease-in-out;
     border-radius: 0 30% 0 0;
-    box-shadow: 4px 0 10px rgb(0, 0, 0, 0.2);
+    box-shadow: 4px 0 10px var(--shadow);
 
 }
 
@@ -202,6 +202,85 @@ body{
     transition: 0.6s ease;
     transform: translateX(5%);
 }
+
+
+/* Stylowanie home.html */
+
+/* Stylowanie nagłówka */
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em 2em;
+}
+
+header h3{
+    font-size: 3em;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+}
+
+header h3 span{
+    font-weight: bold;
+}
+
+header img{
+    border-radius: 50%;
+    border: 2px solid var(--white);
+}
+
+/* Stylowanie wrappera */
+section#wrapper{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 60%;
+    margin: 10% auto 0 auto;
+    padding: 10% 10%;
+    border-radius: 2em;
+    box-shadow: 4px 4px 10px var(--shadow);
+}
+
+section#wrapper .buttons{
+    align-items: center;
+    text-align: center;
+    margin-right: 10%;
+    padding: 1em;
+    cursor: pointer;
+}
+
+section#wrapper #library{
+    margin-top: 1%;
+}
+
+section#wrapper #settings{
+    margin-right: 0;
+}
+
+section#wrapper .buttons img{
+    transition: 0.3s ease;
+}
+
+section#wrapper .buttons p{
+    font-size: 1.5em;
+    margin-bottom: 0;
+    transition: 0.3s ;
+}
+
+
+/* Hover */
+
+@media(hover: hover){
+    section#wrapper .buttons:hover img {
+        transform: translateY(-3%);
+    }
+
+    section#wrapper .buttons:hover p {
+        font-weight: bold;
+    }
+}
+
 
 
 
