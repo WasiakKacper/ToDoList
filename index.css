@@ -5,8 +5,13 @@
     --white: #FFFFFF;
     --gray: #9E9E9E;
     --shadow: rgb(0, 0, 0, 0.2);
+    --border: rgb(0, 0, 0, 0.1);
     --font: #252525;
 }
+
+
+
+
 
 /* Ustawienia podstawowe strony */
 *{
@@ -42,6 +47,10 @@ body{
     align-items: center;
     margin-top: 12%;
 }
+
+
+
+
 
 /* Login */
 #login{
@@ -83,6 +92,10 @@ body{
     transform: translate(0, -4%);
 }
 
+
+
+
+
 /* Register */
 #register{
     width: 50%;
@@ -122,6 +135,10 @@ body{
 #register button:hover{
     transform: translateY(-4%);
 }
+
+
+
+
 
 /* Animowany cover */
 #cover{
@@ -204,7 +221,14 @@ body{
 }
 
 
+
+
+
 /* Stylowanie home.html */
+
+
+
+
 
 /* Stylowanie nagłówka */
 header{
@@ -218,6 +242,7 @@ header h3{
     font-size: 3em;
     font-family: 'Poppins', sans-serif;
     color: var(--white);
+    font-weight: normal;
 }
 
 header h3 span{
@@ -228,6 +253,10 @@ header img{
     border-radius: 50%;
     border: 2px solid var(--white);
 }
+
+
+
+
 
 /* Stylowanie wrappera */
 section#wrapper{
@@ -267,6 +296,95 @@ section#wrapper .buttons p{
     margin-bottom: 0;
     transition: 0.3s ;
 }
+
+
+
+
+
+/* Styl do podstrony board.html */
+section#board-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 3%;
+}
+
+section#board-container h3#title{
+    transform: rotate(-90deg);
+    color: var(--white);
+    font-size: 3em;
+    font-weight: normal;
+    width: 30px;
+    padding: 2em;
+    position: absolute;
+    top: 23%;
+    left: 6%;
+}
+
+section#board-container article{
+    width: 22%;
+    height: 630px;
+    background-color: var(--white);
+    margin: 7% 3% 0 3%;
+    padding: 0;
+    border-radius: 1em;
+    text-align: center;
+    box-shadow: 4px 4px 5px var(--shadow);
+}
+
+section#board-container article h3{
+    margin:3% 2% 5% 2%;
+    font-size: 2.5em;
+    font-weight: normal;
+}
+
+section#board-container article .list-items-wrapper{
+    margin: 3% auto;
+    height: 86%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+section#board-container article div.list-item{
+    width: 90%;
+    height: auto;
+    margin: 2% auto;
+    background-color: var(--white);
+    box-shadow: 4px 4px 4px var(--shadow);
+    border: 1px solid var(--border);
+    border-radius: 0.9em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2%;
+    font-size: 1.5em;
+    cursor: grab;
+}
+
+section#board-container article div::-webkit-scrollbar{
+    width: 10px;
+}
+
+section#board-container article div::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+section#board-container article div::-webkit-scrollbar-thumb{
+    background-color: var(--shadow);
+    border-radius: 2em;
+}
+
+section#board-container article div::-webkit-scrollbar-thumb:hover{
+    background-color: var(--gray);
+}
+
+section#board-container article div img{
+    margin-right: 5%;
+}
+
+
+
 
 
 /* Hover */
