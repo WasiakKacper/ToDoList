@@ -1,3 +1,4 @@
+//funkcja odsłaniająca formularz logowania/rejestracji
 function toggleCover(){
     let cover = document.getElementById('cover');
     let content = document.getElementById('description');
@@ -16,3 +17,4 @@ function toggleCover(){
         btn.innerHTML="Zarejestruj się";
     }
 }
+

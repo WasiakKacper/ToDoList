@@ -6,7 +6,8 @@
     <title>KacperWasiak - ToDoList | Board</title>
 
     <!-- Podpięcie index.css -->
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/board.css"/>
 </head>
 <body>
 
@@ -26,7 +27,15 @@
 
             <article id="to-do" class="col-3" > 
 
+
+
                 <h3>To do</h3>
+                <div class="items">
+
+                    <input type="text" name="name" id="name" placeholder="Nazwa elementu listy"/>
+                    <button id="add">+</button>
+
+                </div>
 
                 <div class="list-items-wrapper">
                     <div class="list-item" draggable="true">
@@ -44,32 +53,6 @@
                         <p>List item 3</p>
                     </div>
 
-
-                    <div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div><div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div><div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div><div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div><div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div><div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div><div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div><div class="list-item" draggable="true">
-                        <img src="dodatkowe pliki/avatar.png">
-                        <p>List item 3</p>
-                    </div>
                 </div>
 
             </article>
@@ -95,5 +78,8 @@
 
         </section>
     </main>
+
+    <script src="js/board.js"></script>
+
 </body>
 </html>

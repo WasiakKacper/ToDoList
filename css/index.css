@@ -2,6 +2,7 @@
 :root{
     --blue: #1A85E7;
     --dark-blue: #3E85C8;
+    --light-blue: #2894f8;
     --white: #FFFFFF;
     --gray: #9E9E9E;
     --shadow: rgb(0, 0, 0, 0.2);
@@ -224,183 +225,22 @@ body{
 
 
 
-/* Stylowanie home.html */
-
-
-
-
-
-/* Stylowanie nagłówka */
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1em 2em;
-}
-
-header h3{
-    font-size: 3em;
-    font-family: 'Poppins', sans-serif;
-    color: var(--white);
-    font-weight: normal;
-}
-
-header h3 span{
-    font-weight: bold;
-}
-
-header img{
-    border-radius: 50%;
-    border: 2px solid var(--white);
-}
-
-
-
-
-
-/* Stylowanie wrappera */
-section#wrapper{
-    background-color: var(--white);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 60%;
-    margin: 10% auto 0 auto;
-    padding: 10% 10%;
-    border-radius: 2em;
-    box-shadow: 4px 4px 10px var(--shadow);
-}
-
-section#wrapper .buttons{
-    align-items: center;
-    text-align: center;
-    margin-right: 10%;
-    padding: 1em;
-    cursor: pointer;
-}
-
-section#wrapper #library{
-    margin-top: 1%;
-}
-
-section#wrapper #settings{
-    margin-right: 0;
-}
-
-section#wrapper .buttons img{
-    transition: 0.3s ease;
-}
-
-section#wrapper .buttons p{
-    font-size: 1.5em;
-    margin-bottom: 0;
-    transition: 0.3s ;
-}
-
-
-
-
-
-/* Styl do podstrony board.html */
-section#board-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-right: 3%;
-}
-
-section#board-container h3#title{
-    transform: rotate(-90deg);
-    color: var(--white);
-    font-size: 3em;
-    font-weight: normal;
-    width: 30px;
-    padding: 2em;
-    position: absolute;
-    top: 23%;
-    left: 6%;
-}
-
-section#board-container article{
-    width: 22%;
-    height: 630px;
-    background-color: var(--white);
-    margin: 7% 3% 0 3%;
-    padding: 0;
-    border-radius: 1em;
-    text-align: center;
-    box-shadow: 4px 4px 5px var(--shadow);
-}
-
-section#board-container article h3{
-    margin:3% 2% 5% 2%;
-    font-size: 2.5em;
-    font-weight: normal;
-}
-
-section#board-container article .list-items-wrapper{
-    margin: 3% auto;
-    height: 86%;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-}
-
-section#board-container article div.list-item{
-    width: 90%;
-    height: auto;
-    margin: 2% auto;
-    background-color: var(--white);
-    box-shadow: 4px 4px 4px var(--shadow);
-    border: 1px solid var(--border);
-    border-radius: 0.9em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 2%;
-    font-size: 1.5em;
-    cursor: grab;
-}
-
-section#board-container article div::-webkit-scrollbar{
-    width: 10px;
-}
-
-section#board-container article div::-webkit-scrollbar-track{
-    background: transparent;
-}
-
-section#board-container article div::-webkit-scrollbar-thumb{
-    background-color: var(--shadow);
-    border-radius: 2em;
-}
-
-section#board-container article div::-webkit-scrollbar-thumb:hover{
-    background-color: var(--gray);
-}
-
-section#board-container article div img{
-    margin-right: 5%;
-}
-
-
-
-
 
 /* Hover */
 
 @media(hover: hover){
-    section#wrapper .buttons:hover img {
+    section#wrapper .buttons:hover img{
         transform: translateY(-3%);
     }
 
-    section#wrapper .buttons:hover p {
+    section#wrapper .buttons:hover p{
         font-weight: bold;
     }
+
+    #new-file button:hover{
+        background-color: var(--light-blue);
+        font-weight: bold;
+    }
+
+
 }
-
-
-
-
-
-
