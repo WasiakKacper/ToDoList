@@ -81,33 +81,35 @@ section#board-container article h3{
     font-weight: normal;
 }
 
-section#board-container article input{
+section#board-container article .items input{
     width: 85%;
     border: 1px solid var(--blue);
     border-radius: 2em;
     padding: 0 5%;
 }
 
-section#board-container article button{
-    width:10%;
-    height: 5%;
+section#board-container article .items button{
+    width:40px;
+    height: 40px;
     background-color: transparent;
     font-size: 3em;
     border-radius: 50%;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
-section#board-container article button:hover{
+section#board-container article .items button:hover{
     color: var(--white);
     background-color: var(--blue);
 }
 
 section#board-container article .list-items-wrapper{
     margin: 3% auto;
-    height: 86%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 section#board-container article div.list-item{
@@ -124,6 +126,26 @@ section#board-container article div.list-item{
     padding: 2%;
     font-size: 1.5em;
     cursor: grab;
+    justify-content: space-between;
+}
+
+section#board-container article div.list-item.off{
+    display: none;
+}
+
+section#board-container article div.list-item p{
+align-items: left;
+}
+
+section#board-container article div.list-item button{
+    background-color: transparent;
+    color: var(--gray); 
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+section#board-container article div.list-item button:hover{
+    color: var(--font);
 }
 
 section#board-container article div::-webkit-scrollbar{
