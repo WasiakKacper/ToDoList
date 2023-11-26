@@ -1,3 +1,4 @@
+/* PODSTAWOWE USTWIENIA STRONY */
 :root{
     --blue: #1A85E7;
     --dark-blue: #3E85C8;
@@ -9,7 +10,22 @@
     --font: #252525;
 }
 
-/* Stylowanie nagłówka */
+html{
+    font-size: 10px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    overflow-y: hidden;
+}
+
+
+
+
+
+
+/* STYLOWANIE NAGŁÓWKA */
 header{
     display: flex;
     flex-direction: row;
@@ -50,11 +66,13 @@ section#board-container h3#title{
     color: var(--white);
     font-size: 3em;
     font-weight: normal;
-    width: 30px;
-    padding: 2em;
+    width: auto;
+    height: 40px;
+    margin: 0;
     position: absolute;
-    top: 23%;
-    left: 6%;
+    top: 24%;
+    left: 7%;
+    background-color: transparent;
 }
 
 section#board-container article{
@@ -169,6 +187,43 @@ section#board-container article div img{
     margin-right: 5%;
 }
 
+/*Modal*/
+#alert-modal.active{
+    width: 400px;
+    height: auto;
+    padding: 2em;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    box-shadow: 5px 5px 10px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 2%;
+    left: 38%;
+    visibility: visible;
+    text-align: center;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 1em;
+}
 
+#alert-modal.active button{
+    width: 35%;
+    margin-top: 5%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: 15px;
+    padding: .5em;
+    border-radius: 2em;
+    transition: .3s ease;
+    cursor: pointer;
+}
 
+#alert-modal.active button:hover{
+    background-color: var(--blue);
+}
 
+#alert-modal{
+    display: none;
+    visibility: hidden;
+}
