@@ -1,4 +1,4 @@
-//DDODAWANIE ELEMENTU DO LISTY ORAZ JEGO USUWANIE
+/*DDODAWANIE ELEMENTU DO LISTY ORAZ JEGO USUWANIE*/
 //Tworzenie zmiennych kontenera, nazwy elemenu oraz przycisku
 let container = document.getElementById("todo-wrapper");
 let list_el_value = document.getElementById("item-name");
@@ -9,10 +9,10 @@ add_btn.addEventListener('click', function addItem(){//Funkcja tworząca element
     if(list_el_value.value != ''){ //Jesli pole nie jest puste utwórz element
         
         //Tworzenie elementu
-        let new_item = document.createElement('div');
+        const new_item = document.createElement('div');
         new_item.classList.add("list-item");
         new_item.setAttribute('draggable', 'true');
-        new_item.innerHTML = `<img src="dodatkowe pliki/avatar.png" alt="Zdjęcie profilowe"/><p>${list_el_value.value}</p>`;
+        new_item.innerHTML = `<p>${list_el_value.value}</p>`;
         container.appendChild(new_item);
 
         //Tworzenie przycisku uswania
@@ -31,7 +31,7 @@ add_btn.addEventListener('click', function addItem(){//Funkcja tworząca element
 
     else{ //Jesli pole jesy puste wyświetl kominukat
         let modal = document.getElementById('alert-modal');
-        modal.innerHTML = '<p>Musisz nazwac elemnt żeby go utworzyć !</p><button id="confirm">Ok</button>';
+        modal.innerHTML = '<p>Musisz nazwac element żeby go utworzyć!</p><button id="confirm">Ok</button>';
         modal.classList.add('active');
         let close_btn = document.getElementById('confirm');
 
@@ -44,6 +44,15 @@ add_btn.addEventListener('click', function addItem(){//Funkcja tworząca element
     }
 });
 
-//PRZENOSZENIE ELEMENTU MIĘDZY LISTAMI
+/*PRZENOSZENIE ELEMENTU MIĘDZY LISTAMI*/
+new_item.addEventListener('dragstart', ()=>{
 
+    new_item.classList.add('dragging');
 
+});
+
+new_item.addEventListener('dragend', ()=>{
+
+    new_item.classList.remove('dragging');
+
+})

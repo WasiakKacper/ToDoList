@@ -10,6 +10,12 @@
     --font: #252525;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html{
     font-size: 10px;
     box-sizing: border-box;
@@ -24,12 +30,56 @@ body{
 
 
 
+/* ZAWARTOŚĆ STORNY */
+/* 🔔modal🔔 */
+#alert-modal.active{
+    width: 20%;
+    height: auto;
+    padding: 2em;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    box-shadow: 5px 5px 10px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 2%;
+    right: 40%;
+    opacity: 100%;
+    text-align: center;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 1em;
+    transition: 0.3s ease;
+}
 
-/* STYLOWANIE NAGŁÓWKA */
+#alert-modal.active button{
+    width: 35%;
+    margin-top: 5%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: 15px;
+    padding: .5em;
+    border-radius: 2em;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+#alert-modal{
+    display: none;
+    opacity: 0%;
+    transition: .3s ease;
+}
+
+
+
+
+
+
+/* 🔝stylowanie nagłówka🔝 */
 header{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1em 2em;
 }
 
@@ -38,6 +88,9 @@ header h3{
     font-family: 'Poppins', sans-serif;
     color: var(--white);
     font-weight: normal;
+    position: absolute;
+    left: 47%;
+    pointer-events: none;
 }
 
 header h3 span{
@@ -45,47 +98,35 @@ header h3 span{
 }
 
 header img{
+    scale: 1.2;
+    margin-left: 96%;
+    border: 1px solid var(--white);
     border-radius: 50%;
-    border: 2px solid var(--white);
+    cursor: pointer;
 }
 
 
 
 
 
-/* Styl do podstrony board.html */
+/* 📦STYL POJEMNIKA NA LISTY📦 */
 section#board-container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin-right: 3%;
-}
-
-section#board-container h3#title{
-    transform: rotate(-90deg);
-    color: var(--white);
-    font-size: 3em;
-    font-weight: normal;
-    width: auto;
-    height: 40px;
-    margin: 0;
-    position: absolute;
-    top: 24%;
-    left: 7%;
-    background-color: transparent;
+    justify-content: space-evenly;
 }
 
 section#board-container article{
     width: 22%;
     height: 630px;
     background-color: var(--white);
-    margin: 7% 3% 0 3%;
-    padding: 0;
     border-radius: 1em;
     text-align: center;
     box-shadow: 4px 4px 5px var(--shadow);
+    margin-top: 10%;
 }
 
+/* Styl dodania elementu */
 section#board-container article div.items{
     display: flex;
     flex-direction: row;
@@ -104,21 +145,18 @@ section#board-container article .items input{
     border: 1px solid var(--blue);
     border-radius: 2em;
     padding: 0 5%;
+    font-size: 120%;
 }
 
 section#board-container article .items button{
-    width:40px;
+    width: 40px;
     height: 40px;
     background-color: transparent;
     font-size: 3em;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s ease;
-}
-
-section#board-container article .items button:hover{
-    color: var(--white);
-    background-color: var(--blue);
+    margin: 0;
 }
 
 section#board-container article .list-items-wrapper{
@@ -130,6 +168,7 @@ section#board-container article .list-items-wrapper{
     overflow-x: hidden;
 }
 
+/* 🧩STYL ELEMENTU LISTY🧩 */
 section#board-container article div.list-item{
     width: 90%;
     height: auto;
@@ -146,6 +185,7 @@ section#board-container article div.list-item{
     cursor: grab;
     justify-content: space-between;
 }
+
 
 section#board-container article div.list-item.off{
     display: none;
@@ -166,6 +206,8 @@ section#board-container article div.list-item button:hover{
     color: var(--font);
 }
 
+
+/* ⬇STYL SCROLLBARA⬇ */
 section#board-container article div::-webkit-scrollbar{
     width: 10px;
 }
@@ -187,43 +229,22 @@ section#board-container article div img{
     margin-right: 5%;
 }
 
-/*Modal*/
-#alert-modal.active{
-    width: 400px;
-    height: auto;
-    padding: 2em;
-    background-color: var(--white);
-    border: 1px solid var(--border);
-    box-shadow: 5px 5px 10px var(--shadow);
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 2%;
-    left: 38%;
-    visibility: visible;
-    text-align: center;
-    align-items: center;
-    font-size: 15px;
-    border-radius: 1em;
-}
 
-#alert-modal.active button{
-    width: 35%;
-    margin-top: 5%;
-    background-color: var(--dark-blue);
-    color: var(--white);
-    font-size: 15px;
-    padding: .5em;
-    border-radius: 2em;
-    transition: .3s ease;
-    cursor: pointer;
-}
 
-#alert-modal.active button:hover{
-    background-color: var(--blue);
-}
 
-#alert-modal{
-    display: none;
-    visibility: hidden;
+
+/* HOVERY */
+@media(hover: hover){
+
+    /* hover przycisku modala */
+    #alert-modal.active button:hover{
+        background-color: var(--blue);
+    }
+
+    /* hover przycisku dodania elementu do listy */
+    section#board-container article .items button:hover{
+        color: var(--white);
+        background-color: var(--blue);
+    }
+
 }
