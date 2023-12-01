@@ -19,10 +19,7 @@
 html{
     font-size: 10px;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body{
+    font-family: Poppins;
     overflow-y: hidden;
 }
 
@@ -32,29 +29,60 @@ body{
 
 /* ZAWARTOŚĆ STORNY */
 /* 🔔modal🔔 */
-#alert-modal.active{
-    width: 20%;
-    height: auto;
-    padding: 2em;
-    background-color: var(--white);
-    border: 1px solid var(--border);
-    box-shadow: 5px 5px 10px var(--shadow);
+#alert-modal{
+    width: 80%;
+    height: 70px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: absolute;
-    top: 2%;
-    right: 40%;
-    opacity: 100%;
-    text-align: center;
+    left: 0;
+    bottom: 0;
+    margin: 0 10%;
+    background-color: var(--white);
+    border-radius: 2em;
     align-items: center;
-    font-size: 15px;
-    border-radius: 1em;
-    transition: 0.3s ease;
+    justify-content: center;
+    transition: all 0.2s ease;
+    transform: translateY(100%);
+    font-size: 20px;
+    filter: drop-shadow(5px 5px 4px var(--shadow));
+}
+
+#alert-modal p{
+    visibility: hidden;
+    margin: 0;
+}
+
+#alert-modal button{
+    visibility: hidden;
+    margin-left: 5%;
+}
+
+#alert-modal.active{
+    width: 80%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--white);
+    opacity: 100%;
+    border-radius: 2em;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10% 1% 10%;
+    transform: translateY(0%);
+}
+
+#alert-modal.active p{
+    text-align: center;
+    visibility: visible;
+    padding: .5em;
 }
 
 #alert-modal.active button{
-    width: 35%;
-    margin-top: 5%;
+    width: 10%;
     background-color: var(--dark-blue);
     color: var(--white);
     font-size: 15px;
@@ -62,12 +90,7 @@ body{
     border-radius: 2em;
     transition: .3s ease;
     cursor: pointer;
-}
-
-#alert-modal{
-    display: none;
-    opacity: 0%;
-    transition: .3s ease;
+    visibility: visible;
 }
 
 
@@ -85,7 +108,6 @@ header{
 
 header h3{
     font-size: 3em;
-    font-family: 'Poppins', sans-serif;
     color: var(--white);
     font-weight: normal;
     position: absolute;
@@ -98,7 +120,7 @@ header h3 span{
 }
 
 header img{
-    scale: 1.2;
+    transform: scale(1.1);
     margin-left: 96%;
     border: 1px solid var(--white);
     border-radius: 50%;
@@ -113,11 +135,10 @@ header img{
 section#board-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 section#board-container article{
-    width: 22%;
     height: 630px;
     background-color: var(--white);
     border-radius: 1em;
@@ -148,15 +169,14 @@ section#board-container article .items input{
     font-size: 120%;
 }
 
-section#board-container article .items button{
-    width: 40px;
-    height: 40px;
+section#board-container article .items button#add-btn{
     background-color: transparent;
     font-size: 3em;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s ease;
-    margin: 0;
+    align-items: center;
+    padding: .5% 3%;
 }
 
 section#board-container article .list-items-wrapper{
@@ -179,7 +199,7 @@ section#board-container article div.list-item{
     border-radius: 0.9em;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    text-align: center;
     padding: 2%;
     font-size: 1.5em;
     cursor: grab;
@@ -192,7 +212,7 @@ section#board-container article div.list-item.off{
 }
 
 section#board-container article div.list-item p{
-align-items: left;
+    margin: 0;
 }
 
 section#board-container article div.list-item button{
@@ -202,9 +222,14 @@ section#board-container article div.list-item button{
     transition: 0.3s ease;
 }
 
-section#board-container article div.list-item button:hover{
-    color: var(--font);
-}
+/* section#board-container article div.list-item.dragging{
+
+    
+
+} */
+
+
+
 
 
 /* ⬇STYL SCROLLBARA⬇ */
@@ -242,9 +267,22 @@ section#board-container article div img{
     }
 
     /* hover przycisku dodania elementu do listy */
-    section#board-container article .items button:hover{
+    section#board-container article .items button#add-btn:hover{
         color: var(--white);
         background-color: var(--blue);
     }
 
+    /* hover przycisku usuwania elementu */
+    section#board-container article div.list-item button:hover{
+        color: var(--font);
+    }
+}
+
+/* BREAKPOINTS */
+
+@media (max-width: 992px){
+    section#board-container article{
+        height: auto;
+        min-height: 200px;
+    }
 }

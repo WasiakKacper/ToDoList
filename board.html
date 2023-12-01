@@ -17,13 +17,19 @@
 </head>
 <body>
 
-    <div id="alert-modal"></div><!-- Powiadomienie o pustym polu -->
+    <div id="alert-modal"><!-- Powiadomienie o pustym polu nazwy elementu listy -->
+
+        <p>Musisz nazwac element żeby go utworzyć!</p>
+
+        <button id="confirm">Ok</button>
+
+    </div>
 
     <!-- STRUKTURA STRONY -->
     <main class="container-fluid">
 
         <!-- NAGŁÓWEK -->
-        <header class="col-lg-12">
+        <header class="col-12">
 
             <h3 id="Logo">.To<span>Do</span>List</h3>
             
@@ -34,36 +40,37 @@
         <!-- LISTY -->
         <section id="board-container" class="row">
 
-            <article id="to-do" class="col-lg-4" > 
+            <article id="to-do" class="col-lg-3" > 
 
                 <h3>To do</h3>
 
                 <div class="items">
 
                     <input type="text" name="name" id="item-name" placeholder="Nazwa elementu listy"/>
-                    <button id="add-btn">+</button>
+
+                    <button id="add-btn"><span>+</span></button>
 
                 </div>
 
-                <div id="todo-wrapper" class="list-items-wrapper"></div>
+                <div id="todo_wrapper" class="list-items-wrapper"></div>
 
             </article>
 
-            <article id="in-progress" class="col-lg-4"> 
+            <article id="in-progress" class="col-lg-3"> 
 
                 <h3>In progress</h3>
 
-                <div class="list-items-wrapper">
+                <div id="in_progres_wrapper" class="list-items-wrapper">
 
                 </div>
 
             </article>
 
-            <article id="done" class="col-lg-4">
+            <article id="done" class="col-lg-3 h-auto">
 
                 <h3>Done</h3>
 
-                <div class="list-items-wrapper">
+                <div id="done_wrapper" class="list-items-wrapper">
 
                 </div>
 
@@ -81,3 +88,4 @@
 
 </body>
 </html>
+
