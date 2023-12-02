@@ -16,11 +16,13 @@ add_btn.addEventListener('click', (e)=>{
         task.innerHTML = value;
 
         task.addEventListener('dragstart', ()=>{
+
             task.classList.add('dragging');
 
         });
 
         task.addEventListener('dragend', ()=>{
+            
             task.classList.remove('dragging');
 
         });
