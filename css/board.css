@@ -31,58 +31,60 @@ html{
 /* 🔔modal🔔 */
 #alert-modal{
     width: 80%;
-    height: 70px;
+    height: 0px;
     display: flex;
     flex-direction: row;
     position: absolute;
     left: 0;
-    bottom: 0;
-    margin: 0 10%;
+    bottom: 0%;
+    margin: 0% 10%;
     background-color: var(--white);
     border-radius: 2em;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    transform: translateY(100%);
     font-size: 20px;
     filter: drop-shadow(5px 5px 4px var(--shadow));
 }
 
 #alert-modal p{
-    visibility: hidden;
+    height: 0px;
     margin: 0;
+    opacity: 0%;
 }
 
 #alert-modal button{
-    visibility: hidden;
+    height: 0px;
+    opacity: 0%;
     margin-left: 5%;
 }
 
 #alert-modal.active{
     width: 80%;
-    height: 70px;
+    height: 80px;
     display: flex;
     flex-direction: row;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 1%;
     background-color: var(--white);
-    opacity: 100%;
     border-radius: 2em;
     align-items: center;
     justify-content: center;
-    margin: 0 10% 1% 10%;
-    transform: translateY(0%);
+    margin: 0 10%;
 }
 
 #alert-modal.active p{
     text-align: center;
-    visibility: visible;
+    height: 70%;
     padding: .5em;
+    opacity: 100%;
 }
 
 #alert-modal.active button{
     width: 10%;
+    height: 50%;
+    visibility: visible;
     background-color: var(--dark-blue);
     color: var(--white);
     font-size: 15px;
@@ -90,7 +92,7 @@ html{
     border-radius: 2em;
     transition: .3s ease;
     cursor: pointer;
-    visibility: visible;
+    opacity: 100%;
 }
 
 
@@ -136,6 +138,7 @@ section#board-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    overflow-y: scroll;
 }
 
 section#board-container article{
@@ -222,11 +225,17 @@ section#board-container article div.list-item button{
     transition: 0.3s ease;
 }
 
-/* section#board-container article div.list-item.dragging{
+section#board-container article div.list-item.dragging{
+    background-color: var(--blue);
+    box-shadow: 4px 4px 4px var(--shadow);
+    border: 1px solid var(--border);
+    border-radius: 0.9em;
+    color: var(--white);
+}
 
-    
-
-} */
+section#board-container article div.list-item.dragging button{
+    color: var(--white);
+}
 
 
 
