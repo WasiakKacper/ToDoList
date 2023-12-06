@@ -36,7 +36,7 @@ body{
 /* ZAWARTOŚĆ STORNY */
 /* 🔔modal🔔 */
 #alert-modal{
-    width: 80%;
+    width: 90%;
     height: 0px;
     display: flex;
     flex-direction: row;
@@ -118,8 +118,6 @@ header h3{
     font-size: 3em;
     color: var(--white);
     font-weight: normal;
-    position: absolute;
-    left: 47%;
     pointer-events: none;
 }
 

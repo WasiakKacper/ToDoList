@@ -1,68 +1,69 @@
+let list_items = document.querySelectorAll('.list-item');
 
-        let list_items = document.querySelectorAll('.list-item');
-
-        list_items.forEach((task) => {
-            
-            task.addEventListener('dragstart', ()=>{
-                task.classList.add('dragging');
+/* Na komputerze */
+list_items.forEach((task) => {
     
-            });
+    task.addEventListener('dragstart', ()=>{
+        task.classList.add('dragging');
+
+    });
+
+    task.addEventListener('dragend', ()=>{
+        task.classList.remove('dragging');
+
+    });
+
+
+
+});
+
+
+let items_wrappers = document.querySelectorAll('.list-items-wrapper');
+
+items_wrappers.forEach((zone) =>{
     
-            task.addEventListener('dragend', ()=>{
-                task.classList.remove('dragging');
-    
-            });
+    zone.addEventListener('dragover', (e)=> {
+        e.preventDefault();
 
+        const bottomTask = insertAboveTask(zone, e.clientY);
+        const curTask = document.querySelector('.dragging');
 
-
-        });
-
+        if(!bottomTask){
+            zone.appendChild(curTask);
+        }
+        else{
+            zone.insertBefore(curTask, bottomTask)
+        }
         
-        let items_wrappers = document.querySelectorAll('.list-items-wrapper');
+    });
 
-        items_wrappers.forEach((zone) =>{
-            
-            zone.addEventListener('dragover', (e)=> {
-                e.preventDefault();
+});
 
-                const bottomTask = insertAboveTask(zone, e.clientY);
-                const curTask = document.querySelector('.dragging');
+const insertAboveTask = (zone, mouseY) => {
 
-                if(!bottomTask){
-                    zone.appendChild(curTask);
-                }
-                else{
-                    zone.insertBefore(curTask, bottomTask)
-                }
-                
-            });
+    const els = zone.querySelectorAll('.task:not(.dragging)');
 
-        });
+    let closestTask = null;
+    let closestOffSet = Number.NEGATIVE_INFINITY;
+    
+    els.forEach((task)=>{
 
-        const insertAboveTask = (zone, mouseY) => {
+        const { top } = task.getBoudnigClientRect();
+        const offset = mouseY - top;
 
-            const els = zone.querySelectorAll('.task:not(.dragging)');
+        if(offset < 0 && offset > closestOffSet){
 
-            let closestTask = null;
-            let closestOffSet = Number.NEGATIVE_INFINITY;
-            
-            els.forEach((task)=>{
+            closestOffSet = offset;
+            closestTask = task;
 
-                const { top } = task.getBoudnigClientRect();
-                const offset = mouseY - top;
+        }
 
-                if(offset < 0 && offset > closestOffSet){
+    });
+    return closestTask;
+};
 
-                    closestOffSet = offset;
-                    closestTask = task;
 
-                }
-
-            });
-            return closestTask;
-        };
-
-        let item_value = document.getElementById('item-name');
+let item_value = document.getElementById('item-name');
 let add_btn = document.getElementById('add-btn');
 
 add_btn.addEventListener('click', (e)=>{
