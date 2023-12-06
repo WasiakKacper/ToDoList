@@ -21,6 +21,14 @@ html{
     font-family: Poppins;
 }
 
+/* Styl tła */
+body{
+    height: 100%;
+    background: linear-gradient(to right bottom, var(--dark-blue), var(--blue));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 
 
 

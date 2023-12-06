@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Podpięcie CSS -->
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
     <!-- Podpięcie Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,51 +23,34 @@
     <!-- Struktura strony -->
     <main class="container-fluid"> 
 
-        <!-- Formularz logowania -->
-        <div id="form-container" class="row">
+        <div class="row">
 
-            <form action="" id="login" class="col-6">
+            <section id="background" class="col-md-10">
 
-                <h2>Zaloguj się</h2>
-                <input type="email" name="email" placeholder="Adres e-mail"/>
-                <input type="password" name="password" placeholder="Hasło"/>
-                <button type="submit" name="login">Zaloguj się</button>
+                <header>
+                    <h1>.To<span>Do</span>List</h1>
+                    <a href="https://kacper-wasiak-portfolio-programisty.netlify.app/" target="_blank"><p>by Kacper<span>Wasiak</span></p></a>
+                </header>
+                
+    
+                <p id="description">Witam w aplikacji internetowej <span>.To<span>Do</span>List</span>. Życzę miłego planowania.</p>
+    
+            </section>
+    
+            <section id="open-list" class="col-md-2">
+    
+                <a href="board.html">
+    
+                    <p id="icon">+</p>
+                    <p id="name">Stwórz listę</p>
+    
+                </a>
+    
 
-            </form>
-
-            <form action="" id="register" class="col-6">
-
-                <h2>Zarejestruj się</h2>
-                <input type="text" name="name" placeholder="Imie i nazwisko"/>
-                <input type="email" name="email" placeholder="Adres e-mail"/>
-                <input type="password" name="password" placeholder="Hasło"/>
-                <input type="password"  placeholder="Powtórz hasło"/>
-                <button type="submit" name="login">Zarejestruj się</button>
-
-            </form>
-
-        </div>
-
-        <!-- Animowany cover zakrywający formularz rejestracji(default)/logowania -->
-        <div id="cover">
-
-            <div id="cover-content">
-
-                <div id="header">
-
-                    <h1>
-                        .To<span>Do</span>List
-                    </h1>
-
-                </div>
-
-                <h3 id="description">Nie masz jeszcze konta?</h3>
-                <button type="submit" name="register" id="toogle" onclick="toggleCover()">Zarejestruj się</button>
-
-            </div>
+            </section>
+    
 
         </div>
-        
     </main>
 
     <!-- Podpięcie bootstrap.js -->
