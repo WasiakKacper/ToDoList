@@ -125,14 +125,6 @@ header h3 span{
     font-weight: bold;
 }
 
-header img{
-    transform: scale(1.1);
-    margin-left: 96%;
-    border: 1px solid var(--white);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
 
 
 
@@ -145,12 +137,12 @@ section#board-container{
 }
 
 section#board-container article{
-    height: 630px;
+    height: 730px;
     background-color: var(--white);
     border-radius: 1em;
     text-align: center;
     box-shadow: 4px 4px 5px var(--shadow);
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 /* Styl dodania elementu */
@@ -182,7 +174,8 @@ section#board-container article .items button#add-btn{
     cursor: pointer;
     transition: 0.3s ease;
     align-items: center;
-    padding: .5% 3%;
+    padding: 0.1em .54em;
+    margin-left: 3%;
 }
 
 section#board-container article .list-items-wrapper{

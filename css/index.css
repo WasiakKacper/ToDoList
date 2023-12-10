@@ -42,6 +42,7 @@ section#background{
     background-color: var(--white);
     border-radius: 0 12em 0 0;
     height: 100vh;
+    transition: .3s ease-in-out;
 }
 
 section#background header{
