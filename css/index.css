@@ -39,6 +39,7 @@ body{
 
 /* Główna zawartość strony */
 section#background{
+    width: 80%;
     background-color: var(--white);
     border-radius: 0 12em 0 0;
     height: 100vh;
@@ -98,6 +99,7 @@ section#background p#description span span{
 }
 
 section#open-list{
+    width: 20%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -127,10 +129,15 @@ section#open-list a p#name{
     section#open-list a:hover{
         scale: 1.1;
     }
+
+    section#open-list a:hover section#background{
+       width: 75%;
+    }
 }
 
-@media(max-width: 768px){
+@media(max-width: 992px){
     section#background{
+        width: 100%;
         height: 50vh;
         border-radius: 0 0 3em 3em;
         margin-bottom: 15%;
@@ -146,6 +153,8 @@ section#open-list a p#name{
 
     section#open-list{
         font-size: 1.5em;
+        width: 100%;
+        height: auto;
     }
-
 }
+

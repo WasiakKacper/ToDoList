@@ -36,14 +36,13 @@ body{
 /* ZAWARTOŚĆ STORNY */
 /* 🔔modal🔔 */
 #alert-modal{
-    width: 90%;
+    width: 100%;
     height: 0px;
     display: flex;
     flex-direction: row;
     position: fixed;
-    left: 0;
     bottom: 0%;
-    margin: 0% 10%;
+    margin: 0% auto;
     background-color: var(--white);
     border-radius: 2em;
     align-items: center;
@@ -66,18 +65,17 @@ body{
 }
 
 #alert-modal.active{
-    width: 80%;
+    width: 100%;
     height: 80px;
     display: flex;
     flex-direction: row;
     position: absolute;
-    left: 0;
     bottom: 1%;
     background-color: var(--white);
     border-radius: 2em;
     align-items: center;
     justify-content: center;
-    margin: 0 10%;
+    margin: 0 auto;
 }
 
 #alert-modal.active p{
