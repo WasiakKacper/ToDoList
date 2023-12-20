@@ -143,6 +143,23 @@ section#board-container article{
     margin-top: 5%;
 }
 
+section#board-container article{
+    height: 730px;
+    background-color: var(--white);
+    border-radius: 1em;
+    text-align: center;
+    box-shadow: 4px 4px 5px var(--shadow);
+    margin-top: 5%;
+}
+section#board-container article{
+    height: 730px;
+    background-color: var(--white);
+    border-radius: 1em;
+    text-align: center;
+    box-shadow: 4px 4px 5px var(--shadow);
+    margin-top: 5%;
+}
+
 /* Styl dodania elementu */
 section#board-container article div.items{
     display: flex;
@@ -309,4 +326,15 @@ section#board-container article div img{
         height: auto;
         min-height: 200px;
     }
+
+    section#board-container article.m-visible{
+        height: 70vh;
+        padding: 5%;
+        margin-top: 20%;
+    }
+
+    section#board-container article.m-non{
+        display: none;
+    }
+
 }
