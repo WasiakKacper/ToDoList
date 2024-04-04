@@ -1,3 +1,4 @@
+/* Przenoszenie zadań między listami */
 const list_items = document.querySelectorAll('.list-item');
 
 
@@ -83,10 +84,13 @@ add_btn.addEventListener('click', ()=>{
         const modal = document.getElementById('alert-modal');
         modal.classList.add('active');
         const close_btn = document.getElementById('confirm');
+        const main = document.querySelector('main');
+        main.classList.add('active');
 
         close_btn.addEventListener('click', ()=>{
 
             modal.classList.remove('active');
+            main.classList.remove('active');
 
         });
 
