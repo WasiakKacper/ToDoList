@@ -32,8 +32,55 @@ body{
 
 
 
-
 /* ZAWARTOŚĆ STORNY */
+/* Cookie menu */
+div#cookies-container{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin: 10% auto;
+    width: 400px;
+    height: 60vh;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 1em;
+    box-shadow: 4px 4px 15px var(--shadow);
+}
+
+
+div#cookies-container span{
+    font-size: 150px;
+    margin:10% auto;
+}
+
+div#cookies-container p{
+    margin: 10% 10% 0 10%;
+    font-size: 2em;
+}
+
+div#cookies-container a{
+    margin: 2% 10% 10% 10%;
+    font-size: 2em;
+}
+
+div#cookies-container button{
+    width: 80%;
+    margin: 0 auto;
+    padding: 1.2em;
+    border-radius: 2em;
+    font-size: 1.3em;
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+
+
+
+
+
 /* 🔔modal🔔 */
 #alert-modal{
     width: 100%;
@@ -322,6 +369,24 @@ section#board-container article div img{
 /* BREAKPOINTS */
 
 @media (max-width: 992px){
+    div#cookies-container{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        margin: auto 0;
+        padding-bottom: 2em;
+        background-color: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 1em;
+        box-shadow: 4px 4px 15px var(--shadow);
+    }
+    
+    
     section#board-container article{
         height: auto;
         min-height: 200px;
