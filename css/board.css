@@ -37,54 +37,6 @@ main.active{
 
 
 /* ZAWARTOŚĆ STORNY */
-/* Cookie menu */
-div#cookies-container{
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    margin: 10% auto;
-    width: 400px;
-    height: 60vh;
-    background-color: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 1em;
-    box-shadow: 4px 4px 15px var(--shadow);
-}
-
-
-div#cookies-container span{
-    font-size: 150px;
-    margin:10% auto;
-}
-
-div#cookies-container p{
-    margin: 10% 10% 0 10%;
-    font-size: 2em;
-}
-
-div#cookies-container a{
-    margin: 2% 10% 10% 10%;
-    font-size: 2em;
-}
-
-div#cookies-container button{
-    width: 80%;
-    margin: 0 auto;
-    padding: 1.2em;
-    border-radius: 2em;
-    font-size: 1.3em;
-    color: var(--white);
-    background-color: var(--blue);
-}
-
-
-
-
-
-
 /* 🔔modal🔔 */
 #alert-modal{
     width: 20%;
@@ -144,10 +96,6 @@ header h3{
     color: var(--white);
     font-weight: normal;
     pointer-events: none;
-}
-
-header h3 span{
-    font-weight: bold;
 }
 
 
@@ -210,13 +158,14 @@ section#board-container article .items input{
 }
 
 section#board-container article .items button#add-btn{
+    width: 11%;
+    height: auto;
     background-color: transparent;
     font-size: 3em;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s ease;
-    align-items: center;
-    padding: 0.1em .54em;
+    text-align: center;
     margin-left: 3%;
 }
 
@@ -326,8 +275,8 @@ section#board-container article div img{
 
     /* hover przycisku dodania elementu do listy */
     section#board-container article .items button#add-btn:hover{
-        color: var(--white);
-        background-color: var(--blue);
+        color: var(--blue);
+        font-weight: bolder;
     }
 
     /* hover przycisku usuwania elementu */
