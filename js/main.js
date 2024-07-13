@@ -1,8 +1,79 @@
-/* Przenoszenie zadań między listami */
-const list_items = document.querySelectorAll('.list-item');
+const addBtn = document.getElementById('add-btn');
+let taskName = document.getElementById('item-name');
+const listItems = document.querySelectorAll('.list-item');
 
 
-list_items.forEach((task) => {
+//Add task to localStorage
+function save(){
+    if(taskName.value != ""){
+        const localStorageContent = localStorage.getItem('taskName');
+
+        let tasksNames;
+        if(localStorageContent === null){
+            tasksNames = [];
+        }else{
+            tasksNames = JSON.parse( localStorageContent );
+        }
+        tasksNames.push(taskName.value);
+        localStorage.setItem('taskName' ,JSON.stringify(tasksNames));
+    }
+}
+
+//Adding task
+addBtn.addEventListener('click', ()=>{
+    if(taskName.value != ""){
+        const task = document.createElement('div');
+        task.className = 'list-item';
+        task.setAttribute('draggable', 'true');
+        task.innerHTML = taskName.value;
+
+        const container = document.getElementById('todo_wrapper');
+        container.appendChild(task);
+        
+        save();
+
+        taskName.value = "";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const add_btn = document.getElementById('add-btn');
+let item_value = document.getElementById('item-name');
+const list_items = document.querySelectorAll('.list-item'); */
+
+//Przenoszenie zadań między listami
+/* list_items.forEach((task) => {
 
     task.addEventListener('dragstart', ()=> {
 
@@ -32,12 +103,27 @@ items_wrappers.forEach((zone) =>{
         });
     });
 
+}); */
+
+//Załadownie zadań z pamięci jeśli takie istnieją
+/* document.addEventListener('DOMContentLoaded', ()=>{
+    if(localStorage){
+        const container = document.getElementById('todo_wrapper');
+        const task = document.createElement('div');
+        task.classList.add('list-item');
+        task.setAttribute('draggable', 'true');
+        task.innerHTML = "test";
+    
+        container.appendChild(task);
+    
+        const del_btn = document.createElement('button');
+        del_btn.classList.add('material-symbols-outlined');
+        del_btn.innerHTML = 'close';
+        task.appendChild(del_btn);    
+    }
 });
 
-/* Dodanie na kliknięcie */
-let item_value = document.getElementById('item-name');
-const add_btn = document.getElementById('add-btn');
-
+//Dodanie na kliknięcie
 add_btn.addEventListener('click', ()=>{
     const value = item_value.value;
     const container = document.getElementById('todo_wrapper');
@@ -48,6 +134,13 @@ add_btn.addEventListener('click', ()=>{
         task.classList.add('list-item');
         task.setAttribute('draggable', 'true');
         task.innerHTML = value;
+
+        function save(){
+            taskArray = [];
+            taskArray.push(value);
+            localStorage.setItem("taskValue", taskArray);
+        }
+        save();
 
         task.addEventListener('dragstart', ()=>{
 
@@ -76,7 +169,6 @@ add_btn.addEventListener('click', ()=>{
         });
 
         item_value.value = "";
-
     }
 
     else{
@@ -96,12 +188,12 @@ add_btn.addEventListener('click', ()=>{
 
     }
 
-});
+}); */
 
 
 
-/* Dodanie na wciśnięcie przycisku enter */
-document.addEventListener('keypress', (e)=>{
+//Dodanie na wciśnięcie przycisku enter
+/* document.addEventListener('keypress', (e)=>{
     
     if(e.key === 'Enter'){
 
@@ -144,7 +236,6 @@ document.addEventListener('keypress', (e)=>{
             });
     
             item_value.value = "";
-    
         }
     
         else{
@@ -171,4 +262,4 @@ document.addEventListener('keypress', (e)=>{
 
     }
 
-});
+}); */
