@@ -2,22 +2,25 @@ const addBtn = document.getElementById('add-btn');
 let taskName = document.getElementById('item-name');
 const listItems = document.querySelectorAll('.list-item');
 
-
 //Add task to localStorage
+let tasks = [];
 function save(){
-    if(taskName.value != ""){
-        const localStorageContent = localStorage.getItem('taskName');
 
-        let tasksNames;
-        if(localStorageContent === null){
-            tasksNames = [];
-        }else{
-            tasksNames = JSON.parse( localStorageContent );
-        }
-        tasksNames.push(taskName.value);
-        localStorage.setItem('taskName' ,JSON.stringify(tasksNames));
-    }
+    if(taskName.value != "") localStorage.setItem('taskName', tasks);
+
 }
+
+//Load storage onLoad
+document.addEventListener('DOMContentLoaded', ()=>{
+    let tasksContent = localStorage.getItem('taskName');
+    tasks.push(tasksContent);
+    let tasksSerialized = JSON.stringify(tasks);
+
+    console.log(tasksSerialized)
+    if(tasksSerialized != null){
+        //
+    }
+});
 
 //Adding task
 addBtn.addEventListener('click', ()=>{
@@ -30,6 +33,7 @@ addBtn.addEventListener('click', ()=>{
         const container = document.getElementById('todo_wrapper');
         container.appendChild(task);
         
+        tasks.push(taskName.value);
         save();
 
         taskName.value = "";
