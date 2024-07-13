@@ -2,27 +2,8 @@ const addBtn = document.getElementById('add-btn');
 let taskName = document.getElementById('item-name');
 const listItems = document.querySelectorAll('.list-item');
 
-//Add task to localStorage
-let tasks = [];
-function save(){
-
-    if(taskName.value != "") localStorage.setItem('taskName', tasks);
-
-}
-
-//Load storage onLoad
-document.addEventListener('DOMContentLoaded', ()=>{
-    let tasksContent = localStorage.getItem('taskName');
-    tasks.push(tasksContent);
-    let tasksSerialized = JSON.stringify(tasks);
-
-    console.log(tasksSerialized)
-    if(tasksSerialized != null){
-        //
-    }
-});
-
-//Adding task
+//ADDNIG TASK
+//on click
 addBtn.addEventListener('click', ()=>{
     if(taskName.value != ""){
         const task = document.createElement('div');
@@ -32,14 +13,81 @@ addBtn.addEventListener('click', ()=>{
 
         const container = document.getElementById('todo_wrapper');
         container.appendChild(task);
-        
-        tasks.push(taskName.value);
-        save();
 
         taskName.value = "";
+
+        const delBtn = document.createElement('button');
+        delBtn.classList.add('material-symbols-outlined');
+        delBtn.innerHTML = 'close';
+        task.appendChild(delBtn);
+
+        delBtn.addEventListener('click', (e)=>{
+
+            e.preventDefault();
+            delBtn.parentElement.remove();
+
+        });
+    }
+    else{
+        const modal = document.getElementById('alert-modal');
+        modal.classList.add('active');
+        const close_btn = document.getElementById('confirm');
+        const main = document.querySelector('main');
+        main.classList.add('active');
+
+        close_btn.addEventListener('click', ()=>{
+
+            modal.classList.remove('active');
+            main.classList.remove('active');
+
+        });
     }
 });
 
+//on press enter
+document.addEventListener('keypress', (e)=>{
+    e.preventDefault;
+    if(e.key === 'Enter'){
+        if(taskName.value != ""){
+            const task = document.createElement('div');
+            task.className = 'list-item';
+            task.setAttribute('draggable', 'true');
+            task.innerHTML = taskName.value;
+    
+            const container = document.getElementById('todo_wrapper');
+            container.appendChild(task);
+    
+            taskName.value = "";
+    
+            const delBtn = document.createElement('button');
+            delBtn.classList.add('material-symbols-outlined');
+            delBtn.innerHTML = 'close';
+            task.appendChild(delBtn);
+    
+            delBtn.addEventListener('click', (e)=>{
+    
+                e.preventDefault();
+                delBtn.parentElement.remove();
+    
+            });
+        }
+        else{
+            const modal = document.getElementById('alert-modal');
+            modal.classList.add('active');
+            const close_btn = document.getElementById('confirm');
+            const main = document.querySelector('main');
+            main.classList.add('active');
+    
+            document.addEventListener('keypress', (e)=>{
+                e.preventDefault;
+                if(e.key === 'Enter'){
+                    modal.classList.remove('active');
+                    main.classList.remove('active');
+                }
+            });
+        }
+    }
+});
 
 
 
