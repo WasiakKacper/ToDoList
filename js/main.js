@@ -89,6 +89,12 @@ document.addEventListener('keypress', (e)=>{
     }
 });
 
+//Dragging tasks between boxes
+listItems.forEach((task)=>{
+    task.addEventListener('dragstart', ()=>{
+        console.log('tak');
+    });
+});
 
 
 
