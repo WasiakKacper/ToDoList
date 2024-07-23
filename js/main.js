@@ -1,7 +1,7 @@
 //Load task's from storage
 document.addEventListener('DOMContentLoaded', ()=>{
     const container = document.getElementById('todo_wrapper');
-    if(localStorage != ''){
+    if("task" in localStorage){
         const taskList = localStorage.getItem("task");
         
         const task = document.createElement('div');
@@ -74,6 +74,7 @@ add_btn.addEventListener('click', ()=>{
         });
 
         function save(){
+            localStorage.setItem("task", value);
         }
         save();
 
