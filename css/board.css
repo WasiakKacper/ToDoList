@@ -200,6 +200,8 @@ section#board-container article div.list-item.dragging{
     border: 1px solid var(--border);
     border-radius: 0.9em;
     color: var(--white);
+    opacity: 1;
+    cursor: grab;
 }
 
 section#board-container article div.list-item.dragging button{
