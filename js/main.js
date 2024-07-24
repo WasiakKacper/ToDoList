@@ -1,17 +1,44 @@
+let tasks = [];
+
 //Load task's from storage
 document.addEventListener('DOMContentLoaded', ()=>{
     const container = document.getElementById('todo_wrapper');
-    if("task" in localStorage){
-        const taskList = localStorage.getItem("task");
-        
+
+    if(localStorage.getItem("task") !== null){
+        let dataFromStorage = JSON.parse(localStorage.getItem("task"));
+
+        tasks = Object.keys(dataFromStorage).map((key)=>{
+            return dataFromStorage[key];
+        });
+    }
+
+    tasks.forEach(tasks => {
         const task = document.createElement('div');
         task.classList.add('list-item');
         task.setAttribute('draggable', 'true');
-        task.innerHTML = taskList;
+        task.innerHTML = tasks;
+
+        const del_btn = document.createElement('button');
+        del_btn.classList.add('material-symbols-outlined');
+        del_btn.innerHTML = 'close';
+        task.appendChild(del_btn);
+
+        del_btn.addEventListener('click', (e)=>{
+
+            e.preventDefault();
+            del_btn.parentElement.remove();
+        });
     
         container.appendChild(task);
-    }
+    });
+
+/*          */
 });
+
+
+
+
+
 const add_btn = document.getElementById('add-btn');
 let item_value = document.getElementById('item-name');
 const list_items = document.querySelectorAll('.list-item');
@@ -74,7 +101,9 @@ add_btn.addEventListener('click', ()=>{
         });
 
         function save(){
-            localStorage.setItem("task", value);
+            tasks.push(value);
+            let tasksInString = JSON.stringify(tasks);
+            localStorage.setItem("task", tasksInString);
         }
         save();
 
@@ -144,6 +173,13 @@ document.addEventListener('keypress', (e)=>{
                 task.classList.remove('dragging');
     
             });
+
+            function save(){
+                tasks.push(value);
+                let tasksInString = JSON.stringify(tasks);
+                localStorage.setItem("task", tasksInString);
+            }
+            save();
     
             container.appendChild(task);
     
