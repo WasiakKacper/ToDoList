@@ -1,42 +1,8 @@
-/* Addind and deleting tasks from lists/list */
+let tasks = [];
+//Add task on click
 const add_btn = document.getElementById('add-btn');
 let item_value = document.getElementById('item-name');
-const list_items = document.querySelectorAll('.list-item');
 
-//Przenoszenie zadań między listami
-list_items.forEach((task) => {
-
-    task.addEventListener('dragstart', ()=> {
-
-        task.classList.add('dragging');
-
-        task.addEventListener('dragend', ()=>{
-            task.classList.remove('dragging');
-
-        });
-    
-    });
-
-});
-
-const items_wrappers = document.querySelectorAll('.list-items-wrapper');
-
-items_wrappers.forEach((zone) =>{
-    
-    zone.addEventListener('dragover', (e)=> {
-        e.preventDefault();
-
-        zone.addEventListener('drop', (e)=>{
-            e.preventDefault();
-
-            const curTask = document.querySelectorAll('.dragging');
-            zone.appendChild(curTask);
-        });
-    });
-
-});
-
-//Dodanie na kliknięcie
 add_btn.addEventListener('click', ()=>{
     const value = item_value.value;
     const container = document.getElementById('todo_wrapper');
@@ -60,6 +26,7 @@ add_btn.addEventListener('click', ()=>{
 
         });
 
+        //Function saveing tasks in local storage
         function save(){
             tasks.push(value);
             let tasksInString = JSON.stringify(tasks);
@@ -122,18 +89,15 @@ document.addEventListener('keypress', (e)=>{
             task.setAttribute('draggable', 'true');
             task.innerHTML = value;
     
-            task.addEventListener('dragstart', ()=>{
-    
-                task.classList.add('dragging');
-    
+            task.addEventListener('dragstart', ()=>{   
+                task.classList.add('dragging');   
             });
     
-            task.addEventListener('dragend', ()=>{
-                
+            task.addEventListener('dragend', ()=>{                
                 task.classList.remove('dragging');
-    
             });
 
+            //Function saveing tasks in local storage
             function save(){
                 tasks.push(value);
                 let tasksInString = JSON.stringify(tasks);
@@ -149,15 +113,12 @@ document.addEventListener('keypress', (e)=>{
             task.appendChild(del_btn);
     
             del_btn.addEventListener('click', (e)=>{
-    
                 e.preventDefault();
                 del_btn.parentElement.remove();
-    
             });
     
             item_value.value = "";
         }
-    
         else{
     
             const modal = document.getElementById('alert-modal');
@@ -165,21 +126,70 @@ document.addEventListener('keypress', (e)=>{
             const close_btn = document.getElementById('confirm');
     
             close_btn.addEventListener('click', ()=>{
-    
                 modal.classList.remove('active');
-    
             });
 
             document.addEventListener('keypress', (e)=>{
-    
                 if(e.key === 'Enter'){
                 modal.classList.remove('active');
-                
                 }    
             });
-    
         }
-
     }
+});
+
+//Przenoszenie zadań między listami
+const list_items = document.querySelectorAll('.list-item');
+
+list_items.forEach((task) => {
+
+    task.addEventListener('dragstart', ()=> {
+        task.classList.add('dragging');
+
+        task.addEventListener('dragend', ()=>{
+            task.classList.remove('dragging');
+        });
+    
+    });
 
 });
+
+//Detecting is element in done or to do container
+const doneContainer = document.getElementById('done_wrapper');
+
+doneContainer.addEventListener('dragover', (e)=> {
+    e.preventDefault();
+
+    doneContainer.addEventListener('drop', ()=>{
+        const curTask = document.querySelector('.dragging');
+        doneContainer.appendChild(curTask);
+        curTask.classList.add('done');
+    });
+});
+
+doneContainer.addEventListener('drop', ()=>{
+    const list_item = document.querySelector('.list-item');
+    console.log(list_item);
+});
+
+const todoContainer = document.getElementById('todo_wrapper');
+
+todoContainer.addEventListener('dragover', (e)=> {
+    e.preventDefault();
+
+    todoContainer.addEventListener('drop', ()=>{
+        const curTask = document.querySelector('.dragging');
+        todoContainer.appendChild(curTask);
+        curTask.classList.remove('done');
+    });
+});
+
+todoContainer.addEventListener('drop', ()=>{
+    const list_item = document.querySelector('.list-item');
+    tasks = JSON.parse(localStorage.getItem('task'));
+    tasks.push(list_item);
+    let tasksInString = JSON.stringify(tasks);
+});
+
+
+

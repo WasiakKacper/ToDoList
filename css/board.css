@@ -5,6 +5,7 @@
     --light-blue: #2894f8;
     --white: #FFFFFF;
     --gray: #9E9E9E;
+    --light-gray: #dbdbdb;
     --shadow: rgb(0, 0, 0, 0.2);
     --border: rgb(0, 0, 0, 0.1);
     --font: #252525;
@@ -27,6 +28,7 @@ body{
     background: linear-gradient(to right bottom, var(--dark-blue), var(--blue));
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin-bottom: 2%;
 }
 
 main.active{
@@ -153,7 +155,8 @@ section#board-container article .items button#add-btn{
 
 section#board-container article .list-items-wrapper{
     margin: 3% auto;
-    height: 80%;
+    height: 100%;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -176,6 +179,15 @@ section#board-container article div.list-item{
     font-size: 1.5em;
     cursor: grab;
     justify-content: space-between;
+    opacity: 1;
+}
+
+section#board-container article div.list-item.done{
+    background-color: var(--light-gray);
+}
+
+section#board-container article div.list-item.done button{
+    display: none;
 }
 
 
@@ -284,7 +296,7 @@ section#board-container article div img{
 @media (max-width: 992px){
     section#board-container article{
         height: auto;
-        min-height: 200px;
+        min-height: 400px;
     }
 
     section#board-container article.m-visible{
