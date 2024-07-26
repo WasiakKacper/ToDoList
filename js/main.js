@@ -1,44 +1,4 @@
-let tasks = [];
-
-//Load task's from storage
-document.addEventListener('DOMContentLoaded', ()=>{
-    const container = document.getElementById('todo_wrapper');
-
-    if(localStorage.getItem("task") !== null){
-        let dataFromStorage = JSON.parse(localStorage.getItem("task"));
-
-        tasks = Object.keys(dataFromStorage).map((key)=>{
-            return dataFromStorage[key];
-        });
-    }
-
-    tasks.forEach(tasks => {
-        const task = document.createElement('div');
-        task.classList.add('list-item');
-        task.setAttribute('draggable', 'true');
-        task.innerHTML = tasks;
-
-        const del_btn = document.createElement('button');
-        del_btn.classList.add('material-symbols-outlined');
-        del_btn.innerHTML = 'close';
-        task.appendChild(del_btn);
-
-        del_btn.addEventListener('click', (e)=>{
-
-            e.preventDefault();
-            del_btn.parentElement.remove();
-        });
-    
-        container.appendChild(task);
-    });
-
-/*          */
-});
-
-
-
-
-
+/* Addind and deleting tasks from lists/list */
 const add_btn = document.getElementById('add-btn');
 let item_value = document.getElementById('item-name');
 const list_items = document.querySelectorAll('.list-item');
@@ -69,7 +29,7 @@ items_wrappers.forEach((zone) =>{
         zone.addEventListener('drop', (e)=>{
             e.preventDefault();
 
-            const curTask = document.querySelector('.dragging');
+            const curTask = document.querySelectorAll('.dragging');
             zone.appendChild(curTask);
         });
     });
