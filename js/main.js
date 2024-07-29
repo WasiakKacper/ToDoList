@@ -28,9 +28,22 @@ add_btn.addEventListener('click', ()=>{
 
         //Function saveing tasks in local storage
         function save(){
-            tasks.push(value);
-            let tasksInString = JSON.stringify(tasks);
-            localStorage.setItem("task", tasksInString);
+
+            if(localStorage.getItem('task') !== null){
+
+                const oldTasksArray = JSON.parse(localStorage.getItem('task'));
+
+                tasks = oldTasksArray;
+
+                tasks.push(value);
+                let tasksInString = JSON.stringify(tasks);
+                localStorage.setItem("task", tasksInString);
+            }
+            else{
+                tasks.push(value);
+                let tasksInString = JSON.stringify(tasks);
+                localStorage.setItem("task", tasksInString);
+            }
         }
         save();
 
@@ -100,9 +113,22 @@ document.addEventListener('keypress', (e)=>{
 
             //Function saveing tasks in local storage
             function save(){
-                tasks.push(value);
-                let tasksInString = JSON.stringify(tasks);
-                localStorage.setItem("task", tasksInString);
+
+                if(localStorage.getItem('task') !== null){
+
+                    const oldTasksArray = JSON.parse(localStorage.getItem('task'));
+
+                    tasks = oldTasksArray;
+
+                    tasks.push(value);
+                    let tasksInString = JSON.stringify(tasks);
+                    localStorage.setItem("task", tasksInString);
+                }
+                else{
+                    tasks.push(value);
+                    let tasksInString = JSON.stringify(tasks);
+                    localStorage.setItem("task", tasksInString);
+                }
             }
             save();
     
@@ -168,10 +194,6 @@ doneContainer.addEventListener('dragover', (e)=> {
     });
 });
 
-/* doneContainer.addEventListener('drop', ()=>{
-    const list_item = document.querySelector('.list-item');
-}); */
-
 const todoContainer = document.getElementById('todo_wrapper');
 
 todoContainer.addEventListener('dragover', (e)=> {
@@ -183,10 +205,3 @@ todoContainer.addEventListener('dragover', (e)=> {
         curTask.classList.remove('done');
     });
 });
-
-/* todoContainer.addEventListener('drop', ()=>{
-    const list_item = document.querySelector('.list-item');
-}); */
-
-
-
