@@ -43,8 +43,9 @@ add_btn.addEventListener('click', ()=>{
 
         del_btn.addEventListener('click', (e)=>{
 
-            e.preventDefault();
-            del_btn.parentElement.remove();
+            del_btn.forEach(task => {
+                del_btn.parentElement.remove();
+            });
 
         });
 
@@ -167,10 +168,9 @@ doneContainer.addEventListener('dragover', (e)=> {
     });
 });
 
-doneContainer.addEventListener('drop', ()=>{
+/* doneContainer.addEventListener('drop', ()=>{
     const list_item = document.querySelector('.list-item');
-    console.log(list_item);
-});
+}); */
 
 const todoContainer = document.getElementById('todo_wrapper');
 
@@ -184,12 +184,9 @@ todoContainer.addEventListener('dragover', (e)=> {
     });
 });
 
-todoContainer.addEventListener('drop', ()=>{
+/* todoContainer.addEventListener('drop', ()=>{
     const list_item = document.querySelector('.list-item');
-    tasks = JSON.parse(localStorage.getItem('task'));
-    tasks.push(list_item);
-    let tasksInString = JSON.stringify(tasks);
-});
+}); */
 
 
 
