@@ -55,10 +55,18 @@ add_btn.addEventListener('click', ()=>{
         task.appendChild(del_btn);
 
         del_btn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            del_btn.parentElement.remove();
 
-            del_btn.forEach(task => {
-                del_btn.parentElement.remove();
-            });
+            function cutFromStorage(){
+                tasks = JSON.parse(localStorage.getItem('task'));
+                const index = tasks.indexOf(value);
+
+                tasks.splice(index, 1);
+            
+                localStorage.setItem('task', JSON.stringify(tasks));
+            }
+            cutFromStorage();
 
         });
 
@@ -83,8 +91,6 @@ add_btn.addEventListener('click', ()=>{
     }
 
 });
-
-
 
 //Dodanie na wciśnięcie przycisku enter
 document.addEventListener('keypress', (e)=>{
@@ -116,9 +122,7 @@ document.addEventListener('keypress', (e)=>{
 
                 if(localStorage.getItem('task') !== null){
 
-                    const oldTasksArray = JSON.parse(localStorage.getItem('task'));
-
-                    tasks = oldTasksArray;
+                    tasks = JSON.parse(localStorage.getItem('task'));
 
                     tasks.push(value);
                     let tasksInString = JSON.stringify(tasks);
@@ -142,6 +146,16 @@ document.addEventListener('keypress', (e)=>{
             del_btn.addEventListener('click', (e)=>{
                 e.preventDefault();
                 del_btn.parentElement.remove();
+
+                function cutFromStorage(){
+                    tasks = JSON.parse(localStorage.getItem('task'));
+                    const index = tasks.indexOf(value);
+    
+                    tasks.splice(index, 1);
+                
+                    localStorage.setItem('task', JSON.stringify(tasks));
+                }
+                cutFromStorage();
             });
     
             item_value.value = "";
@@ -168,7 +182,7 @@ document.addEventListener('keypress', (e)=>{
 //Przenoszenie zadań między listami
 const list_items = document.querySelectorAll('.list-item');
 
-list_items.forEach((task) => {
+list_items.forEach(task => {
 
     task.addEventListener('dragstart', ()=> {
         task.classList.add('dragging');
@@ -188,7 +202,7 @@ doneContainer.addEventListener('dragover', (e)=> {
     e.preventDefault();
 
     doneContainer.addEventListener('drop', ()=>{
-        const curTask = document.querySelector('.dragging');
+        const curTask = document.querySelectorAll('.dragging');
         doneContainer.appendChild(curTask);
         curTask.classList.add('done');
     });

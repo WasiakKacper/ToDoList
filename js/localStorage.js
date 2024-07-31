@@ -19,7 +19,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
         del_btn.addEventListener('click', (e)=>{
             e.preventDefault();
             del_btn.parentElement.remove();
+
+            function cutFromStorage(){
+                tasks = JSON.parse(localStorage.getItem('task'));
+                const index = tasks.indexOf(taskValue);
+
+                tasks.splice(index, 1);
+            
+                localStorage.setItem('task', JSON.stringify(tasks));
+            }
+            cutFromStorage();
+                
         });
     });
 });
+
+
 
