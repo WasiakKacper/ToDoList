@@ -31,32 +31,30 @@ add_btn.addEventListener('click', ()=>{
 
             if(localStorage.getItem('task') !== null){
 
-                const oldTasksArray = JSON.parse(localStorage.getItem('task'));
-
-                tasks = oldTasksArray;
+                tasks = JSON.parse(localStorage.getItem('task'));
 
                 tasks.push(value);
-                let tasksInString = JSON.stringify(tasks);
-                localStorage.setItem("task", tasksInString);
+                tasks = JSON.stringify(tasks);
+                localStorage.setItem("task", tasks);
             }
             else{
                 tasks.push(value);
-                let tasksInString = JSON.stringify(tasks);
-                localStorage.setItem("task", tasksInString);
+                tasks = JSON.stringify(tasks);
+                localStorage.setItem("task", tasks);
             }
         }
         save();
 
         container.appendChild(task);
 
-        const del_btn = document.createElement('button');
-        del_btn.classList.add('material-symbols-outlined');
-        del_btn.innerHTML = 'close';
-        task.appendChild(del_btn);
+        //delete button
+            const del_btn = document.createElement('button');
+            del_btn.classList.add('material-symbols-outlined');
+            del_btn.innerHTML = 'close';
+            task.appendChild(del_btn);
 
-        del_btn.addEventListener('click', (e)=>{
-            e.preventDefault();
-            del_btn.parentElement.remove();
+            del_btn.addEventListener('click', ()=>{
+            container.removeChild(task);
 
             function cutFromStorage(){
                 tasks = JSON.parse(localStorage.getItem('task'));
@@ -67,7 +65,6 @@ add_btn.addEventListener('click', ()=>{
                 localStorage.setItem('task', JSON.stringify(tasks));
             }
             cutFromStorage();
-
         });
 
         item_value.value = "";
@@ -92,8 +89,8 @@ add_btn.addEventListener('click', ()=>{
 
 });
 
-//Dodanie na wciśnięcie przycisku enter
-document.addEventListener('keypress', (e)=>{
+//Add task on keypress
+/* document.addEventListener('keypress', (e)=>{
     
     if(e.key === 'Enter'){
 
@@ -138,24 +135,24 @@ document.addEventListener('keypress', (e)=>{
     
             container.appendChild(task);
     
+            //delete button
             const del_btn = document.createElement('button');
             del_btn.classList.add('material-symbols-outlined');
             del_btn.innerHTML = 'close';
             task.appendChild(del_btn);
-    
-            del_btn.addEventListener('click', (e)=>{
-                e.preventDefault();
-                del_btn.parentElement.remove();
 
-                function cutFromStorage(){
+            del_btn.addEventListener('click', ()=>{
+                container.removeChild(task);
+
+                function cutFromStorage(task){
                     tasks = JSON.parse(localStorage.getItem('task'));
                     const index = tasks.indexOf(value);
-    
+
                     tasks.splice(index, 1);
                 
                     localStorage.setItem('task', JSON.stringify(tasks));
                 }
-                cutFromStorage();
+                cutFromStorage(task);
             });
     
             item_value.value = "";
@@ -177,45 +174,6 @@ document.addEventListener('keypress', (e)=>{
             });
         }
     }
-});
+}); */
 
-//Przenoszenie zadań między listami
-const list_items = document.querySelectorAll('.list-item');
-
-list_items.forEach(task => {
-
-    task.addEventListener('dragstart', ()=> {
-        task.classList.add('dragging');
-
-        task.addEventListener('dragend', ()=>{
-            task.classList.remove('dragging');
-        });
-    
-    });
-
-});
-
-//Detecting is element in done or to do container
-const doneContainer = document.getElementById('done_wrapper');
-
-doneContainer.addEventListener('dragover', (e)=> {
-    e.preventDefault();
-
-    doneContainer.addEventListener('drop', ()=>{
-        const curTask = document.querySelectorAll('.dragging');
-        doneContainer.appendChild(curTask);
-        curTask.classList.add('done');
-    });
-});
-
-const todoContainer = document.getElementById('todo_wrapper');
-
-todoContainer.addEventListener('dragover', (e)=> {
-    e.preventDefault();
-
-    todoContainer.addEventListener('drop', ()=>{
-        const curTask = document.querySelector('.dragging');
-        todoContainer.appendChild(curTask);
-        curTask.classList.remove('done');
-    });
-});
+//Transfer tasks between boxes
