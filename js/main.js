@@ -90,7 +90,7 @@ add_btn.addEventListener('click', ()=>{
 });
 
 //Add task on keypress
-/* document.addEventListener('keypress', (e)=>{
+document.addEventListener('keypress', (e)=>{
     
     if(e.key === 'Enter'){
 
@@ -174,6 +174,6 @@ add_btn.addEventListener('click', ()=>{
             });
         }
     }
-}); */
+});
 
 //Transfer tasks between boxes

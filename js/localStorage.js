@@ -1,4 +1,4 @@
-/* let tasksArray = [];
+let tasksArray = [];
 
 document.addEventListener('DOMContentLoaded', ()=>{
     if(localStorage.getItem('task') !== null){
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         });
     }
-}); */
+});
 
 
 
