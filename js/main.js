@@ -1,4 +1,5 @@
 let tasks = [];
+
 //Add task on click
 const add_btn = document.getElementById('add-btn');
 let item_value = document.getElementById('item-name');
@@ -8,17 +9,11 @@ add_btn.addEventListener('click', ()=>{
     const container = document.getElementById('todo_wrapper');
 
     if(value != ''){
-
         const task = document.createElement('div');
         task.classList.add('list-item');
         task.setAttribute('draggable', 'true');
         task.innerHTML = value;
 
-        task.addEventListener('dragstart', ()=>{
-
-            task.classList.add('dragging');
-
-        });
 
         task.addEventListener('dragend', ()=>{
             
@@ -100,19 +95,10 @@ document.addEventListener('keypress', (e)=>{
         const container = document.getElementById('todo_wrapper');
     
         if(value != ''){
-    
             const task = document.createElement('div');
             task.classList.add('list-item');
             task.setAttribute('draggable', 'true');
             task.innerHTML = value;
-    
-            task.addEventListener('dragstart', ()=>{   
-                task.classList.add('dragging');   
-            });
-    
-            task.addEventListener('dragend', ()=>{                
-                task.classList.remove('dragging');
-            });
 
             //Function saveing tasks in local storage
             function save(){
@@ -144,7 +130,7 @@ document.addEventListener('keypress', (e)=>{
             del_btn.addEventListener('click', ()=>{
                 container.removeChild(task);
 
-                function cutFromStorage(task){
+                function cutFromStorage(){
                     tasks = JSON.parse(localStorage.getItem('task'));
                     const index = tasks.indexOf(value);
 
@@ -152,7 +138,7 @@ document.addEventListener('keypress', (e)=>{
                 
                     localStorage.setItem('task', JSON.stringify(tasks));
                 }
-                cutFromStorage(task);
+                cutFromStorage();
             });
     
             item_value.value = "";
@@ -169,7 +155,7 @@ document.addEventListener('keypress', (e)=>{
 
             document.addEventListener('keypress', (e)=>{
                 if(e.key === 'Enter'){
-                modal.classList.remove('active');
+                    modal.classList.remove('active');
                 }    
             });
         }
@@ -177,3 +163,14 @@ document.addEventListener('keypress', (e)=>{
 });
 
 //Transfer tasks between boxes
+const currentTask = document.querySelectorAll('.dragging');
+
+//Add dragging class name to task
+currentTask.addEventListener('dragstart', ()=>{
+    console.log('start dragging');
+    currentTask.addEventListener('dragend', ()=>{
+        console.log('stop dragging')
+    });
+});
+
+

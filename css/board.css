@@ -79,7 +79,7 @@ main.active{
 
 #alert-modal.active{
     opacity: 100%;
-    display: block;
+    display: flex;
 }
 
 
