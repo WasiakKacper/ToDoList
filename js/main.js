@@ -15,11 +15,39 @@ add_btn.addEventListener('click', ()=>{
         task.innerHTML = value;
 
 
-        task.addEventListener('dragend', ()=>{
-            
-            task.classList.remove('dragging');
+        task.addEventListener('dragstart', (e)=>{
+            e.preventDefault();
+            task.classList.add('dragging');
 
+            task.addEventListener('dragend', (e)=>{
+                e.preventDefault();
+                task.classList.remove('dragging');
+            })
         });
+
+        function transferBetween(){
+            const doneBox = document.querySelector('#done_wrapper');
+            const todoBox = document.querySelector('#todo_wrapper');
+
+            doneBox.addEventListener('dragover', (e)=>{
+                e.preventDefault();
+
+                const currentTask = document.querySelectorAll('.dragging');
+                doneBox.addEventListener('drop', ()=>{
+                    doneBox.appendChild(currentTask);
+                });
+            });
+
+            todoBox.addEventListener('dragover', (e)=>{
+                e.preventDefault();
+
+                const currentTask = document.querySelectorAll('.dragging');
+                todoBox.addEventListener('drop', ()=>{
+                    todoBox.appendChild(currentTask);
+                });
+            })
+        }
+        transferBetween();
 
         //Function saveing tasks in local storage
         function save(){
@@ -81,7 +109,6 @@ add_btn.addEventListener('click', ()=>{
         });
 
     }
-
 });
 
 //Add task on keypress
@@ -99,6 +126,40 @@ document.addEventListener('keypress', (e)=>{
             task.classList.add('list-item');
             task.setAttribute('draggable', 'true');
             task.innerHTML = value;
+
+            task.addEventListener('dragstart', (e)=>{
+                e.preventDefault();
+                task.classList.add('dragging');
+
+                task.addEventListener('dragend', (e)=>{
+                    e.preventDefault();
+                    task.classList.remove('dragging');
+                })
+            });
+
+            function transferBetween(){
+                const doneBox = document.querySelector('#done_wrapper');
+                const todoBox = document.querySelector('#todo_wrapper');
+    
+                doneBox.addEventListener('dragover', (e)=>{
+                    e.preventDefault();
+    
+                    const currentTask = document.querySelectorAll('.dragging');
+                    doneBox.addEventListener('drop', ()=>{
+                        doneBox.appendChild(currentTask);
+                    });
+                });
+    
+                todoBox.addEventListener('dragover', (e)=>{
+                    e.preventDefault();
+    
+                    const currentTask = document.querySelectorAll('.dragging');
+                    todoBox.addEventListener('drop', ()=>{
+                        todoBox.appendChild(currentTask);
+                    });
+                })
+            }
+            transferBetween();
 
             //Function saveing tasks in local storage
             function save(){
@@ -161,16 +222,4 @@ document.addEventListener('keypress', (e)=>{
         }
     }
 });
-
-//Transfer tasks between boxes
-const currentTask = document.querySelectorAll('.dragging');
-
-//Add dragging class name to task
-currentTask.addEventListener('dragstart', ()=>{
-    console.log('start dragging');
-    currentTask.addEventListener('dragend', ()=>{
-        console.log('stop dragging')
-    });
-});
-
 

@@ -9,6 +9,39 @@ document.addEventListener('DOMContentLoaded', ()=>{
             task.classList.add('list-item');
             task.setAttribute('draggable', 'true');
             task.innerHTML = taskValue;
+
+            task.addEventListener('dragstart', ()=>{
+                task.classList.add('dragging');
+
+                task.addEventListener('dragend', ()=>{
+                    task.classList.remove('dragging');
+                });
+                
+                function transferBetween(){
+                    const doneBox = document.querySelector('#done_wrapper');
+                    const todoBox = document.querySelector('#todo_wrapper');
+    
+                    doneBox.addEventListener('dragover', (e)=>{
+                        e.preventDefault();
+    
+                        const currentTask = document.querySelectorAll('.dragging');
+                        doneBox.addEventListener('drop', ()=>{
+                            doneBox.appendChild(currentTask);
+                        });
+                    });
+
+                    todoBox.addEventListener('dragover', (e)=>{
+                        e.preventDefault();
+
+                        const currentTask = document.querySelectorAll('.dragging');
+                        todoBox.addEventListener('drop', ()=>{
+                            todoBox.appendChild(currentTask);
+                        });
+                    })
+                }
+                transferBetween();
+            });
+
     
     
             const container = document.getElementById('todo_wrapper');

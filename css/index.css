@@ -93,7 +93,7 @@ section#background p#description span{
     color: var(--blue);
 }
 
-section#open-list{
+section#openList{
     width: 35%;
     text-align: center;
     display: flex;
@@ -101,7 +101,7 @@ section#open-list{
     justify-content: center;
 }
 
-section#open-list a{
+section#openList a{
     text-decoration: none;
     color: var(--white);
     transition: .3s ease;
@@ -110,11 +110,11 @@ section#open-list a{
     justify-content: center;
 }
 
-section#open-list a p#icon{
+section#openList a p#icon{
     font-size: 6em;
 }
 
-section#open-list a p#name{
+section#openList a p#name{
     font-size: 2em;
 }
 
@@ -122,7 +122,7 @@ section#open-list a p#name{
 /* Hover */
 
 @media(hover: hover){
-    section#open-list a:hover{
+    section#openList a:hover{
         scale: 1.1;
     }
 }
@@ -144,7 +144,7 @@ section#open-list a p#name{
         left: 52%;
     }
 
-    section#open-list{
+    section#openList{
         font-size: 1.5em;
         width: 100%;
         height: auto;
