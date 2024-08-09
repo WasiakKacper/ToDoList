@@ -15,39 +15,13 @@ add_btn.addEventListener('click', ()=>{
         task.innerHTML = value;
 
 
-        task.addEventListener('dragstart', (e)=>{
-            e.preventDefault();
+        task.addEventListener('dragstart', ()=>{
             task.classList.add('dragging');
-
-            task.addEventListener('dragend', (e)=>{
-                e.preventDefault();
-                task.classList.remove('dragging');
-            })
         });
 
-        function transferBetween(){
-            const doneBox = document.querySelector('#done_wrapper');
-            const todoBox = document.querySelector('#todo_wrapper');
-
-            doneBox.addEventListener('dragover', (e)=>{
-                e.preventDefault();
-
-                const currentTask = document.querySelectorAll('.dragging');
-                doneBox.addEventListener('drop', ()=>{
-                    doneBox.appendChild(currentTask);
-                });
-            });
-
-            todoBox.addEventListener('dragover', (e)=>{
-                e.preventDefault();
-
-                const currentTask = document.querySelectorAll('.dragging');
-                todoBox.addEventListener('drop', ()=>{
-                    todoBox.appendChild(currentTask);
-                });
-            })
-        }
-        transferBetween();
+        task.addEventListener('dragend', ()=>{
+            task.classList.remove('dragging');
+        });
 
         //Function saveing tasks in local storage
         function save(){
@@ -127,39 +101,14 @@ document.addEventListener('keypress', (e)=>{
             task.setAttribute('draggable', 'true');
             task.innerHTML = value;
 
-            task.addEventListener('dragstart', (e)=>{
-                e.preventDefault();
+            task.addEventListener('dragstart', ()=>{
                 task.classList.add('dragging');
-
-                task.addEventListener('dragend', (e)=>{
-                    e.preventDefault();
-                    task.classList.remove('dragging');
-                })
             });
 
-            function transferBetween(){
-                const doneBox = document.querySelector('#done_wrapper');
-                const todoBox = document.querySelector('#todo_wrapper');
-    
-                doneBox.addEventListener('dragover', (e)=>{
-                    e.preventDefault();
-    
-                    const currentTask = document.querySelectorAll('.dragging');
-                    doneBox.addEventListener('drop', ()=>{
-                        doneBox.appendChild(currentTask);
-                    });
-                });
-    
-                todoBox.addEventListener('dragover', (e)=>{
-                    e.preventDefault();
-    
-                    const currentTask = document.querySelectorAll('.dragging');
-                    todoBox.addEventListener('drop', ()=>{
-                        todoBox.appendChild(currentTask);
-                    });
-                })
-            }
-            transferBetween();
+            task.addEventListener('dragend', ()=>{
+                task.classList.remove('dragging');
+            });
+
 
             //Function saveing tasks in local storage
             function save(){
