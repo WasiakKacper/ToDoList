@@ -44,9 +44,12 @@ todo.addEventListener('drop', ()=>{
 
     function saveInStorage(){
         if(localStorage.getItem('task') !== null){
-            tasks = JSON.parse(localStorage.getItem('tasks'));
+            tasks = JSON.parse(localStorage.getItem('task'));
 
-            
+            const value = currentTask.value;
+
+            tasks.push(value);
+            console.log(tasks);
         }
     }
     saveInStorage();
