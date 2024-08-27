@@ -1,9 +1,9 @@
 /* Kolory do CSS */
 :root{
-    --blue: #1A85E7;
-    --dark-blue: #3E85C8;
+    --blue: #3795BD;
+    --dark-blue: #3A1078;
     --light-blue: #2894f8;
-    --white: #FFFFFF;
+    --white: #F7F7F8;
     --gray: #9E9E9E;
     --shadow: rgb(0, 0, 0, 0.2);
     --border: rgb(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@ html{
 /* Styl tła */
 body{
     height: 100%;
-    background: linear-gradient(to right bottom, var(--dark-blue), var(--blue));
+    background:linear-gradient(to right bottom, var(--dark-blue), var(--blue));
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -81,12 +81,12 @@ section#background header p{
 
 section#background p#description{
     width: auto;
-    font-size: x-large;
+    font-size: 3em;
     color: var(--font);
     text-align: left;
     padding: 3%;
     position: relative;
-    top: 25%;
+    top: 15%;
 }
 
 section#background p#description span{
@@ -94,11 +94,12 @@ section#background p#description span{
 }
 
 section#openList{
-    width: 35%;
+    width: 200px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
 }
 
 section#openList a{
@@ -156,5 +157,15 @@ section#openList a p#name{
         position: absolute;
         top: 10%;
         left: 45%;
+    }
+
+    section#background p#description{
+        width: auto;
+        font-size: x-large;
+        color: var(--font);
+        text-align: left;
+        padding: 3%;
+        position: relative;
+        top: 0;
     }
 }
