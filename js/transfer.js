@@ -1,56 +1,48 @@
-const done = document.getElementById('done_wrapper');
+const done = document.getElementById("done_wrapper");
 
-done.addEventListener('dragover', (e)=>{
-    e.preventDefault();
+done.addEventListener("dragover", (e) => {
+  e.preventDefault();
 });
 
-done.addEventListener('drop', (e)=>{
-    e.preventDefault();
+done.addEventListener("drop", (e) => {
+  e.preventDefault();
+  const currentTask = document.querySelector(".dragging");
+  done.appendChild(currentTask);
+  currentTask.classList.add("done");
 
-    const currentTask = document.querySelector('.dragging');
-    done.appendChild(currentTask);
-    currentTask.classList.add('done');
-
-    //Cut form sotrage
+  //Cut form sotrage
+  const cutFromStorage = () => {
     let tasks = [];
+    tasks = JSON.parse(localStorage.getItem("task"));
+    const index = tasks.indexOf(document.querySelector(".dragging").innerText);
+    tasks.splice(index, 1);
+    localStorage.setItem("task", JSON.stringify(tasks));
+  };
 
-    function cutFromStorage(){
-        tasks = JSON.parse(localStorage.getItem('task'));
-
-        let value = document.querySelector('.done');
-        
-        tasks.shift(value);
-        localStorage.setItem('task', JSON.stringify(tasks));
-    }
-    cutFromStorage();
-
+  cutFromStorage();
 });
 
+const todo = document.getElementById("todo_wrapper");
 
-
-const todo = document.getElementById('todo_wrapper');
-
-todo.addEventListener('dragover', (e)=>{
-    e.preventDefault();
+todo.addEventListener("dragover", (e) => {
+  e.preventDefault();
 });
 
-todo.addEventListener('drop', ()=>{
-    const currentTask = document.querySelector('.dragging');
-    todo.appendChild(currentTask);
-    currentTask.classList.remove('done');
+todo.addEventListener("drop", () => {
+  const currentTask = document.querySelector(".dragging");
+  const value = currentTask.innerText;
+  todo.appendChild(currentTask);
 
-//Function saveing tasks in local storage
+  //Function saveing tasks in local storage
+  const saveInStorage = () => {
     let tasks = [];
+    tasks = JSON.parse(localStorage.getItem("task"));
+    const value = document.querySelector(".done").innerText;
 
-    function saveInStorage(){
-        if(localStorage.getItem('task') !== null){
-            tasks = JSON.parse(localStorage.getItem('task'));
+    tasks.push(value);
+    localStorage.setItem("task", JSON.stringify(tasks));
+  };
+  saveInStorage();
 
-            const value = currentTask.value;
-
-            tasks.push(value);
-            console.log(tasks);
-        }
-    }
-    saveInStorage();
+  currentTask.classList.remove("done");
 });
