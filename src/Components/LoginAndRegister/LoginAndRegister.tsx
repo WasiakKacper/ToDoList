@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./LoginAndRegister.css";
 import Logo from "/Images/Logo.svg";
+import { Link } from "react-router-dom";
 
 //Login and Register component
 const LoginAndRegister = () => {
@@ -22,7 +23,6 @@ const LoginAndRegister = () => {
   //Getting value of input
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [isSamePassword, setIsSamePassword] = useState("");
 
   const handleGetLoginValues = () => {
@@ -82,8 +82,9 @@ const LoginAndRegister = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-
-            <button onClick={handleGetLoginValues}>Zaloguj się!</button>
+            <Link to="/Home">
+              <button onClick={handleGetLoginValues}>Zaloguj się!</button>
+            </Link>
           </div>
         ) : (
           <div id="login" className="form">

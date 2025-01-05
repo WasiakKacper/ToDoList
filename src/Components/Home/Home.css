@@ -1,0 +1,70 @@
+:root {
+  --darkBlue: #3a1078;
+  --seaBlue: #3795bd;
+  --white: #f7f7f8;
+  --black: #000;
+  --grey: #e0e0e0;
+}
+
+* {
+  font: 10px "Poppins";
+  margin: 0;
+  padding: 0;
+}
+
+/* Left side */
+#left {
+  width: 60%;
+  background-color: var(--white);
+  border-radius: 0 1.5em 1.5em 0;
+  transition: ease-in-out 300ms;
+}
+
+#left #wrapper {
+  padding-left: 20%;
+  text-align: left;
+  margin-top: 20%;
+}
+
+#left #wrapper h1 {
+  font-size: 3em;
+}
+
+#left #wrapper h1 span {
+  font-size: 1em;
+  color: var(--seaBlue);
+}
+
+/* Right side */
+#right {
+  max-width: 40%;
+  margin: auto auto;
+  text-align: center;
+}
+
+#right button {
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  transition: ease 300ms;
+  cursor: pointer;
+}
+
+#right button h1 {
+  font-size: 2em;
+}
+
+#right button h2 {
+  font-size: 5em;
+  font-weight: 200;
+}
+
+@media (hover: hover) {
+  #right button:hover {
+    scale: 1.1;
+  }
+}
