@@ -1,12 +1,17 @@
 import { useState } from "react";
 import "./LoginAndRegister.css";
 import Logo from "/Images/Logo.svg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //Login and Register component
 const LoginAndRegister = () => {
   const [isActive, setIsActive] = useState(false);
   const [visible, setVisibility] = useState(false);
+
+  const navigate = useNavigate();
+
+  const requiredEmail: string = "wasiak.kacper11@gmail.com";
+  const requiredPassword: string = "K@jka111";
 
   //Sleep function
   const sleep = (ms: number) => {
@@ -26,12 +31,12 @@ const LoginAndRegister = () => {
   const [isSamePassword, setIsSamePassword] = useState("");
 
   const handleGetLoginValues = () => {
-    if (email != "" && password != "") {
-      alert(email + " " + password);
+    if (email == requiredEmail && password == requiredPassword) {
       setEmail("");
       setPassword("");
+      navigate("/home");
     } else {
-      alert("Pole email lub hasło jest puste");
+      alert("Błąd logowania!");
       setEmail("");
       setPassword("");
     }
@@ -44,6 +49,7 @@ const LoginAndRegister = () => {
         setEmail("");
         setPassword("");
         setIsSamePassword("");
+        navigate("/home");
       } else {
         alert("Hasłą różnią się!");
       }
@@ -82,9 +88,7 @@ const LoginAndRegister = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Link to="/Home">
-              <button onClick={handleGetLoginValues}>Zaloguj się!</button>
-            </Link>
+            <button onClick={handleGetLoginValues}>Zaloguj się!</button>
           </div>
         ) : (
           <div id="login" className="form">

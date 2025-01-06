@@ -5,7 +5,7 @@ const CreateList = () => {
   return (
     <div id="container">
       <div id="left">
-        <img src={Logo} alt="Todolist logo" />
+        <img src={Logo} alt="Todolist logo" id="logo" />
         <div id="wrapper">
           <h1>
             Witaj w <span>Todolist</span> życzę miłego planowania.
